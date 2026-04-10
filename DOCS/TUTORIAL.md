@@ -267,4 +267,3 @@ board.wire(path(SAMD.pad("GND"), //starting point, GND pad of SAMD11C
 ![exampleWire](https://user-images.githubusercontent.com/27078897/222631067-1da7d37a-2119-43d7-bdf9-3c2fa6598e61.jpg)
 
 **Note: Pad Names** can be edited or changed in the component description in the **DECLARE COMPONENTS** section  (but do this with great care!)
-
