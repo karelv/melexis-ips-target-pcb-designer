@@ -58,7 +58,7 @@ export function view(state) {
 						</div>
 						`
 					: ""}
-				<div class="footprint-toolbox">
+				<div class="footprint-toolbox footprint-toolbox-closed">
 					<div style="overflow: hidden; overflow-y: scroll; min-height: 100%;">
 						${state.inputs.length > 0 ? html`<div class="toolbox-title">Inputs:</div>` : ""}
 						<div class="input-panel">
