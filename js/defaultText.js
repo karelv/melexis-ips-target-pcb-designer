@@ -1,120 +1,143 @@
-export const defaultText = `// Name: New Board
-// Designer: you
-// Created: today
-
-/*
-Load existing SVG-PCB board design by dragging & dropping
-a SVG-PCB .js file into this browser window
-*/
-
-/* -- DECLARE_COMPONENTS -- */
-// List of imported component footprints
-
-const SAMD11C = {"A05":{"shape":"M 0.03,0.015L -0.03,0.015L -0.0305,0.015L -0.031,0.015L -0.0321,0.0149L -0.0331,0.0147L -0.0336,0.0146L -0.0347,0.0142L -0.0356,0.0139L -0.0361,0.0137L -0.0366,0.0135L -0.0371,0.0132L -0.0375,0.013L -0.038,0.0127L -0.0384,0.0125L -0.0392,0.0118L -0.0396,0.0115L -0.0401,0.0112L -0.0412,0.0101L -0.0415,0.0096L -0.0418,0.0092L -0.0425,0.0084L -0.0427,0.008L -0.043,0.0075L -0.0432,0.0071L -0.0435,0.0066L -0.0437,0.0061L -0.0439,0.0056L -0.0442,0.0047L -0.0446,0.0036L -0.0447,0.0031L -0.0449,0.0021L -0.045,0.001L -0.045,-0.001L -0.0449,-0.0021L -0.0447,-0.0031L -0.0446,-0.0036L -0.0442,-0.0047L -0.0439,-0.0056L -0.0437,-0.0061L -0.0435,-0.0066L -0.0432,-0.0071L -0.043,-0.0075L -0.0427,-0.008L -0.0425,-0.0084L -0.0418,-0.0092L -0.0415,-0.0096L -0.0412,-0.0101L -0.0401,-0.0112L -0.0396,-0.0115L -0.0392,-0.0118L -0.0384,-0.0125L -0.038,-0.0127L -0.0375,-0.013L -0.0371,-0.0132L -0.0366,-0.0135L -0.0361,-0.0137L -0.0356,-0.0139L -0.0347,-0.0142L -0.0336,-0.0146L -0.0331,-0.0147L -0.0321,-0.0149L -0.031,-0.015L 0.03,-0.015L 0.03,0.015","pos":[-0.11,0.15],"layers":["F.Cu"],"index":1},"A08":{"shape":"M -0.03,0.015L 0.03,0.015L 0.03,-0.015L -0.03,-0.015L -0.03,0.015","pos":[-0.11,0.1],"layers":["F.Cu"],"index":2},"A09":{"shape":"M -0.03,0.015L 0.03,0.015L 0.03,-0.015L -0.03,-0.015L -0.03,0.015","pos":[-0.11,0.05],"layers":["F.Cu"],"index":3},"A14":{"shape":"M -0.03,0.015L 0.03,0.015L 0.03,-0.015L -0.03,-0.015L -0.03,0.015","pos":[-0.11,0],"layers":["F.Cu"],"index":4},"A15":{"shape":"M -0.03,0.015L 0.03,0.015L 0.03,-0.015L -0.03,-0.015L -0.03,0.015","pos":[-0.11,-0.05],"layers":["F.Cu"],"index":5},"RST":{"shape":"M -0.03,0.015L 0.03,0.015L 0.03,-0.015L -0.03,-0.015L -0.03,0.015","pos":[-0.11,-0.1],"layers":["F.Cu"],"index":6},"CLK":{"shape":"M -0.03,0.015L 0.03,0.015L 0.03,-0.015L -0.03,-0.015L -0.03,0.015","pos":[-0.11,-0.15],"layers":["F.Cu"],"index":7},"DIO":{"shape":"M -0.03,0.015L 0.03,0.015L 0.03,-0.015L -0.03,-0.015L -0.03,0.015","pos":[0.11,-0.15],"layers":["F.Cu"],"index":8},"24-":{"shape":"M -0.03,0.015L 0.03,0.015L 0.03,-0.015L -0.03,-0.015L -0.03,0.015","pos":[0.11,-0.1],"layers":["F.Cu"],"index":9},"25+":{"shape":"M -0.03,0.015L 0.03,0.015L 0.03,-0.015L -0.03,-0.015L -0.03,0.015","pos":[0.11,-0.05],"layers":["F.Cu"],"index":10},"GND":{"shape":"M -0.03,0.015L 0.03,0.015L 0.03,-0.015L -0.03,-0.015L -0.03,0.015","pos":[0.11,0],"layers":["F.Cu"],"index":11},"VDD":{"shape":"M -0.03,0.015L 0.03,0.015L 0.03,-0.015L -0.03,-0.015L -0.03,0.015","pos":[0.11,0.05],"layers":["F.Cu"],"index":12},"A02":{"shape":"M -0.03,0.015L 0.03,0.015L 0.03,-0.015L -0.03,-0.015L -0.03,0.015","pos":[0.11,0.1],"layers":["F.Cu"],"index":13},"A04":{"shape":"M -0.03,0.015L 0.03,0.015L 0.03,-0.015L -0.03,-0.015L -0.03,0.015","pos":[0.11,0.15],"layers":["F.Cu"],"index":14}};
-
-// constants
-const width = 1;
-const height = 1;
-
-/* -- DECLARE_PCB -- */
-// Circuit board size and shape
-
-let board = new PCB();
-
-let outline = path(
-  pt(-0.5, 0.5),
-  pt(0.5, 0.5),
-  pt(0.5, -0.5),
-  pt(-0.5, -0.5),
-);
-
-board.addShape("outline", outline);
-
-/* -- ADD_COMPONENTS -- */
-
-/*
-List of components dragged and dropped 
-from component footprint list onto the board
-
-Tip: If a component's location is dependent on 
-another component's location...put the dependent 
-component below the reference component 
-*/
-
-/* -- ADD_WIRES -- */
-
-/*
-List of wire traces on the board
-Tip: Use component pad names to create constrained 
-connections between component pads
-*/
-
-board.wire(path(), 0.03); //copy and paste this generic wire command to make a new wire connection
-
-/* -- RENDER_PCB -- */
-// Define the size and shape of the export boundary...should be slightly bigger than and fully enclose your PCB design
-
-const limit0 = pt(-0.55, -0.55);
-const limit1 = pt(0.55, 0.55);
-const xMin = Math.min(limit0[0], limit1[0]);
-const xMax = Math.max(limit0[0], limit1[0]);
-const yMin = Math.min(limit0[1], limit1[1]);
-const yMax = Math.max(limit0[1], limit1[1]);
-
-renderPCB({
-  pcb: board,
-  layerColors: {
-    "outline": "#002d00ff",
-    "B.Cu": "#ff4c007f",
-    "F.Cu": "#ff8c00cc",
-    "B.Mask": "#00000000",
-    "F.Mask": "#00000000",
-    "padLabels": "#ffff99e5",
-    "componentLabels": "#00e5e5e5",
-  },
-  limits: {
-    x: [xMin, xMax],
-    y: [yMin, yMax]
-  },
-  mmPerUnit: 25.4
-});
-`
-
-export const basicSetup = `/* 
+/* 
 @version: v0.2.0
 
-a basic starter design 
+Melexis Inductive Target designer
 */
 
 /* -- DECLARE_PCB -- */
 const board = new PCB();
 
 /* -- DECLARE_COMPONENTS -- */
-const SAMD11C = footprint({"A05":{"shape":"M 0.03,0.015L -0.03,0.015L -0.0305,0.015L -0.031,0.015L -0.0321,0.0149L -0.0331,0.0147L -0.0336,0.0146L -0.0347,0.0142L -0.0356,0.0139L -0.0361,0.0137L -0.0366,0.0135L -0.0371,0.0132L -0.0375,0.013L -0.038,0.0127L -0.0384,0.0125L -0.0392,0.0118L -0.0396,0.0115L -0.0401,0.0112L -0.0412,0.0101L -0.0415,0.0096L -0.0418,0.0092L -0.0425,0.0084L -0.0427,0.008L -0.043,0.0075L -0.0432,0.0071L -0.0435,0.0066L -0.0437,0.0061L -0.0439,0.0056L -0.0442,0.0047L -0.0446,0.0036L -0.0447,0.0031L -0.0449,0.0021L -0.045,0.001L -0.045,-0.001L -0.0449,-0.0021L -0.0447,-0.0031L -0.0446,-0.0036L -0.0442,-0.0047L -0.0439,-0.0056L -0.0437,-0.0061L -0.0435,-0.0066L -0.0432,-0.0071L -0.043,-0.0075L -0.0427,-0.008L -0.0425,-0.0084L -0.0418,-0.0092L -0.0415,-0.0096L -0.0412,-0.0101L -0.0401,-0.0112L -0.0396,-0.0115L -0.0392,-0.0118L -0.0384,-0.0125L -0.038,-0.0127L -0.0375,-0.013L -0.0371,-0.0132L -0.0366,-0.0135L -0.0361,-0.0137L -0.0356,-0.0139L -0.0347,-0.0142L -0.0336,-0.0146L -0.0331,-0.0147L -0.0321,-0.0149L -0.031,-0.015L 0.03,-0.015L 0.03,0.015","pos":[-0.11,0.15],"layers":["F.Cu"],"index":1},"A08":{"shape":"M -0.03,0.015L 0.03,0.015L 0.03,-0.015L -0.03,-0.015L -0.03,0.015","pos":[-0.11,0.1],"layers":["F.Cu"],"index":2},"A09":{"shape":"M -0.03,0.015L 0.03,0.015L 0.03,-0.015L -0.03,-0.015L -0.03,0.015","pos":[-0.11,0.05],"layers":["F.Cu"],"index":3},"A14":{"shape":"M -0.03,0.015L 0.03,0.015L 0.03,-0.015L -0.03,-0.015L -0.03,0.015","pos":[-0.11,0],"layers":["F.Cu"],"index":4},"A15":{"shape":"M -0.03,0.015L 0.03,0.015L 0.03,-0.015L -0.03,-0.015L -0.03,0.015","pos":[-0.11,-0.05],"layers":["F.Cu"],"index":5},"RST":{"shape":"M -0.03,0.015L 0.03,0.015L 0.03,-0.015L -0.03,-0.015L -0.03,0.015","pos":[-0.11,-0.1],"layers":["F.Cu"],"index":6},"CLK":{"shape":"M -0.03,0.015L 0.03,0.015L 0.03,-0.015L -0.03,-0.015L -0.03,0.015","pos":[-0.11,-0.15],"layers":["F.Cu"],"index":7},"DIO":{"shape":"M -0.03,0.015L 0.03,0.015L 0.03,-0.015L -0.03,-0.015L -0.03,0.015","pos":[0.11,-0.15],"layers":["F.Cu"],"index":8},"24-":{"shape":"M -0.03,0.015L 0.03,0.015L 0.03,-0.015L -0.03,-0.015L -0.03,0.015","pos":[0.11,-0.1],"layers":["F.Cu"],"index":9},"25+":{"shape":"M -0.03,0.015L 0.03,0.015L 0.03,-0.015L -0.03,-0.015L -0.03,0.015","pos":[0.11,-0.05],"layers":["F.Cu"],"index":10},"GND":{"shape":"M -0.03,0.015L 0.03,0.015L 0.03,-0.015L -0.03,-0.015L -0.03,0.015","pos":[0.11,0],"layers":["F.Cu"],"index":11},"VDD":{"shape":"M -0.03,0.015L 0.03,0.015L 0.03,-0.015L -0.03,-0.015L -0.03,0.015","pos":[0.11,0.05],"layers":["F.Cu"],"index":12},"A02":{"shape":"M -0.03,0.015L 0.03,0.015L 0.03,-0.015L -0.03,-0.015L -0.03,0.015","pos":[0.11,0.1],"layers":["F.Cu"],"index":13},"A04":{"shape":"M -0.03,0.015L 0.03,0.015L 0.03,-0.015L -0.03,-0.015L -0.03,0.015","pos":[0.11,0.15],"layers":["F.Cu"],"index":14}});
 
 /* -- CONSTANTS -- */
-const width = 1;
-const height = 1;
+const boardOD_mm = 50; // Outer diameter of your circular PCB
+const boardID_mm = 10; // Inner diameter of the hold in the center of your PCB
+
+const noniusEnable = 1;
+const noniusID = 14;
+const noniusOD = 27;
+const noniusPoles = 5;
+const noniusPhase = 0;
+
+const masterID = 29;
+const masterOD = 45;
+const masterPoles = 32;
+const masterPhase = 0;
+
+
+
+const numSegments = 128; // Resolution (number of sides for the polygon)
+
+// --- LOGIC ---
+// Helper to generate points on a circle
+function generateCirclePath(diameter_mm, segments) {
+  const radius = diameter_mm / 2 / 25.4;
+  const points = [];
+
+  for (let i = 0; i < segments; i++) {
+    // Calculate the angle for this point in radians
+    const theta = (i / segments) * 2 * Math.PI; // 0 to 2π radians
+
+    // Basic trigonometry to get Cartesian (X, Y) coordinates
+    // We keep the center at (0, 0)
+    const x = Math.cos(theta) * radius;
+    const y = Math.sin(theta) * radius;
+
+    // Use the pt() helper from svg-pcb API to define the point
+    points.push(pt(x, y));
+
+  }
+
+  // Use the path() helper from svg-pcb API to join points into a loop
+  return path(...points);
+}
+
+function generateArc(diameter_mm, begin_angle_deg, end_angle_deg, segments) {
+  const radius = diameter_mm / 2 / 25.4;
+  const points = [];
+
+  if (end_angle_deg > begin_angle_deg) {
+    for (let angle = begin_angle_deg; angle < end_angle_deg; angle += (end_angle_deg - begin_angle_deg) / segments) {
+      // Calculate the angle for this point in radians
+      const angle_rad = (angle / 360) * 2 * Math.PI; // 0 to 2π radians
+
+      // Basic trigonometry to get Cartesian (X, Y) coordinates
+      // We keep the center at (0, 0)
+      const x = Math.cos(angle_rad) * radius;
+      const y = Math.sin(angle_rad) * radius;
+
+      // Use the pt() helper from svg-pcb API to define the point
+      points.push(pt(x, y));
+    }
+  } else {
+    for (let angle = begin_angle_deg; angle > end_angle_deg; angle += (end_angle_deg - begin_angle_deg) / segments) {
+      // Calculate the angle for this point in radians
+      const angle_rad = (angle / 360) * 2 * Math.PI; // 0 to 2π radians
+
+      // Basic trigonometry to get Cartesian (X, Y) coordinates
+      // We keep the center at (0, 0)
+      const x = Math.cos(angle_rad) * radius;
+      const y = Math.sin(angle_rad) * radius;
+
+      // Use the pt() helper from svg-pcb API to define the point
+      points.push(pt(x, y));
+    }
+  }
+
+  const angle_rad = (end_angle_deg / 360) * 2 * Math.PI; // 0 to 2π radians
+
+  // Basic trigonometry to get Cartesian (X, Y) coordinates
+  // We keep the center at (0, 0)
+  const x = Math.cos(angle_rad) * radius;
+  const y = Math.sin(angle_rad) * radius;
+
+  // Use the pt() helper from svg-pcb API to define the point
+  points.push(pt(x, y));
+
+  // Use the path() helper from svg-pcb API to join points into a loop
+  return points;
+}
 
 /* -- ADD_COMPONENTS -- */
-const ic = board.add(SAMD11C, { translate: pt(-0.2, 0.050), rotate: 0, id: "SAMD11C" })
 
 /* -- BOARD_SIZE_SHAPE -- */
-const outline = path(
-  [-0.5, 0.5],
-  [0.5, 0.5],
-  [0.5, -0.5],
-  [-0.5, -0.5],
-);
+const outline = generateCirclePath(boardOD_mm, numSegments);
+const cutout = generateCirclePath(boardID_mm, numSegments);
 
+board.addShape("outline", cutout);
 board.addShape("outline", outline);
+board.addShape("do-not-manufacture", cutout); //
+
+/* -- ADD the IPS Targets -- */
+if (noniusEnable) {
+  for (let pole = 0; pole < noniusPoles; pole += 1) {
+    const begin_angle = pole * (360 / noniusPoles) + noniusPhase;
+    const end_angle = (pole + 0.5) * (360 / noniusPoles) + noniusPhase;
+
+    let shape1 = generateArc(noniusID, begin_angle, end_angle, 32);
+    shape1.push(...generateArc(noniusOD, end_angle, begin_angle, 32));
+    board.addShape("F.Cu", path(...shape1));
+  }
+}
+
+for (let pole = 0; pole < masterPoles; pole += 1) {
+  const begin_angle = pole * (360 / masterPoles) + masterPhase;
+  const end_angle = (pole + 0.5) * (360 / masterPoles) + masterPhase;
+
+  let shape1 = generateArc(masterID, begin_angle, end_angle, 32);
+  shape1.push(...generateArc(masterOD, end_angle, begin_angle, 32));
+  board.addShape("F.Cu", path(...shape1));
+}
+
+
+
 
 /* -- ADD_WIRES -- */
-board.wire(path(), 0.015);
 
 /* -- RENDER_PCB -- */
-const limit0 = pt(-0.55, -0.55);
-const limit1 = pt(0.55, 0.55);
+const D = boardOD_mm * 1.1 / 2 / 25.4;
+const limit0 = pt(-D, -D);
+const limit1 = pt(+D, +D);
 const xMin = Math.min(limit0[0], limit1[0]);
 const xMax = Math.max(limit0[0], limit1[0]);
 const yMin = Math.min(limit0[1], limit1[1]);
@@ -124,12 +147,8 @@ renderPCB({
   pcb: board,
   layerColors: {
     "outline": "#002d00ff",
-    "B.Cu": "#ff4c007f",
     "F.Cu": "#ff8c00cc",
-    "B.Mask": "#00000000",
-    "F.Mask": "#00000000",
-    "padLabels": "#ffff99e5",
-    "componentLabels": "#00e5e5e5",
+    "do-not-manufacture": "#ffffffff",
   },
   limits: {
     x: [xMin, xMax],
@@ -138,5 +157,3 @@ renderPCB({
   background: "#00000000",
   mmPerUnit: 25.4
 });
-
-`.replaceAll("\t", " ")
