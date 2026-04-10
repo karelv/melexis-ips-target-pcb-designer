@@ -938,8 +938,8 @@ export function downloadGerber(state) {
       .generateAsync({ type:"blob" })
       .then((content) => {
           // see FileSaver.js
-          saveAs(content, `${state.name === "" ? "Untitled" : state.name}-Gerbers.zip`);
+          saveAs(content, `${state.name === "" ? "Melexis-IPS-PCB-Target-Gerbers.zip" : state.name}-Gerbers.zip`);
       });
   
-    // downloadText(`${state.name === "" ? "anon" : state.name}-F_Cu.gbr`, str);
+    // downloadText(`${state.name === "" ? "Melexis-IPS-PCB-Target" : state.name}-F_Cu.gbr`, str);
   }

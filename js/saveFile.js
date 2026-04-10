@@ -22,7 +22,7 @@ export async function saveFile(content, { filename, fileHandle } = {}) {
             }
           }
         ],
-        suggestedName: filename ?? 'anon'
+        suggestedName: filename ?? 'Melexis-IPS-PCB-Target'
       }))
 
     // Create a FileSystemWritableFileStream to write to.

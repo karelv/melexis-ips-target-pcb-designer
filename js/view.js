@@ -140,7 +140,7 @@ const menu = state => html`
 						png
 					</div class="menu-item">
 					<div class="menu-item"
-						@click=${() => downloadText(`${state.name === "" ? "anon" : state.name}.js`, state.codemirror.view.state.doc.toString())}>
+						@click=${() => downloadText(`${state.name === "" ? "Melexis-IPS-PCB-Target" : state.name}.js`, state.codemirror.view.state.doc.toString())}>
 						js
 					</div>
 					<div class="menu-item"

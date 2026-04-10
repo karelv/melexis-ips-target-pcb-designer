@@ -9,7 +9,7 @@ export function downloadSVG(state) {
   // make download link
   const downloadLink = document.createElement("a");
   downloadLink.href = svgUrl;
-  downloadLink.download = `${state.name === "" ? "anon" : state.name}.svg`;
+  downloadLink.download = `${state.name === "" ? "Melexis-IPS-PCB-Target" : state.name}.svg`;
   document.body.appendChild(downloadLink);
   downloadLink.click();
 
@@ -98,7 +98,7 @@ export function downloadPNG(state, dpi = 1000) {
     ctx.clearRect(0,0,width,height);
     ctx.drawImage(img,0,0,width,height);
     const imageData = ctx.getImageData(0, 0, width, height);
-    dlCanvas(canvas, `${state.name === "" ? "anon" : state.name}`);
+    dlCanvas(canvas, `${state.name === "" ? "Melexis-IPS-PCB-Target" : state.name}`);
   }
 }
 
