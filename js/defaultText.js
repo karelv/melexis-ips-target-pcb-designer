@@ -1,7 +1,19 @@
 export const defaultText = `/* 
-@version: v0.2.0
+@version: v0.1.0
 
 Melexis Inductive Position Sensor Target PCB designer
+
+This is a simple script that generates gerber files.
+Those PCBs can be use as targets for the Melexis Inductive Position Sensor (IPS) chips.
+
+https://melexis.com/mlx90510
+https://melexis.com/mlx90513
+https://melexis.com/mlx90514
+https://melexis.com/mlx90520
+
+
+This project is made possible by reusing the work done by the svg-pcb project:
+https://leomcelroy.com/svg-pcb-website/#/home
 */
 
 /* -- DECLARE_PCB -- */
@@ -161,9 +173,21 @@ renderPCB({
 `
 
 export const basicSetup = `/* 
-@version: v0.2.0
+@version: v0.1.0
 
 Melexis Inductive Position Sensor Target PCB designer
+
+This is a simple script that generates gerber files.
+Those PCBs can be use as targets for the Melexis Inductive Position Sensor (IPS) chips.
+
+https://melexis.com/mlx90510
+https://melexis.com/mlx90513
+https://melexis.com/mlx90514
+https://melexis.com/mlx90520
+
+
+This project is made possible by reusing the work done by the svg-pcb project:
+https://leomcelroy.com/svg-pcb-website/#/home
 */
 
 /* -- DECLARE_PCB -- */
