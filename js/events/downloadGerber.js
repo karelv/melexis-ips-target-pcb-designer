@@ -20,7 +20,7 @@ export const GerberDrillFormat = Object.freeze({
 
 // This gives full file name according to user selected options
 function getFilename(state, layerName){
-  const projectName = state.name === "" ? "Untitled" : state.name;
+  const projectName = state.name === "" ? "Melexis-IPS-PCB-Target" : state.name;
   const useProtel = state.downloadGerberOptions.protelFilenames;
 
   let fileName = projectName; // This is just the basename

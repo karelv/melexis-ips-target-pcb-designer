@@ -340,7 +340,7 @@ export class KiCadBoardFileBuilder {
 
 export function downloadKiCad(state) {
   const zip = new JSZip();
-  const projectName = (state.name === "" ? "Untitled" : state.name);
+  const projectName = (state.name === "" ? "Melexis-IPS-PCB-Target" : state.name);
   const boardFileOptions = new KiCadBoardFileOptions({
     libraryName: state.downloadKiCadOptions.footprintLibraryName,
     padShapeType: state.downloadKiCadOptions.padShapeType
@@ -354,6 +354,6 @@ export function downloadKiCad(state) {
     .generateAsync({ type:"blob" })
     .then((content) => {
         // see FileSaver.js
-        saveAs(content, `${state.name === "" ? "Untitled" : state.name}-KiCad.zip`);
+        saveAs(content, `${state.name === "" ? "Melexis-IPS-PCB-Target" : state.name}-KiCad.zip`);
     });
 }

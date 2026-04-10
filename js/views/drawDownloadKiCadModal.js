@@ -28,7 +28,7 @@ export const drawDownloadKiCadModal = state => {
 					<div class="modal-line">
 						<input id="projectName" 
 							type="text" 
-							.value=${state.name === "" ? "Untitled" : state.name}
+							.value=${state.name === "" ? "Melexis-IPS-PCB-Target" : state.name}
 							@input=${(e) => {
 								state.name = e.target.value;
 							}}>
