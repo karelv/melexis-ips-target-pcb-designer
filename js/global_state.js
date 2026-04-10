@@ -38,7 +38,7 @@ export const global_state = {
 
   showNetlist: true,
 
-  viewHandles: true,
+  viewHandles: false,
   panZoomParams: undefined,
   previewFootprint: null,
   vimMode: false,

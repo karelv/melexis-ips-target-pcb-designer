@@ -150,21 +150,6 @@ const menu = state => html`
 						}}>
 						gerber
 					</div class="menu-item">
-					<div class="menu-item"
-						@click=${(e) => {
-							state.downloadKiCadModal = true;
-							dispatch("RENDER");
-						}}>
-						kicad
-					</div>
-					<div class="menu-item"
-						@click=${(e) => {
-							state.svgToModsOptions.selectedMachine = undefined;
-							state.svgToModsModal = true;
-							dispatch("RENDER");
-						}}>
-						mods
-					</div>
 					<input 
 						class="input-item"
 						style="margin: 3px;"
@@ -284,28 +269,10 @@ const menu = state => html`
 							}}>
 						</input>
 					</div>
-					<div class="check-item">
-						<span>vim mode</span>
-						<input
-							type="checkbox"
-							.checked=${state.vimMode}
-							@change=${(e) => {
-								state.vimMode = e.target.checked;
-								const cmEl = document.querySelector(".code-editor");
-								const str = state.codemirror.view.state.doc.toString();
-								cmEl.innerHTML = "";
-  							state.codemirror = initCodeMirror(cmEl, state.vimMode);
-  							state.codemirror.view.dispatch({
-								  changes: { from: 0, insert: str }
-								});
-							}}
-							>
-						</input>
-					</div>
 				</div>
 			</div>
 		</div>
-		<a class="github-logo" href="https://github.com/leomcelroy/svg-pcb">
+		<a class="github-logo" href="https://github.com/karelv/melexis-ips-target-pcb-designer">
 			<i class="fa fa-github" style="font-size:24px"></i>
 		</a>
 	</div>
